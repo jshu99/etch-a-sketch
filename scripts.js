@@ -1,8 +1,10 @@
 // const container = document.querySelector('#container');
+const input = document.querySelector("input");
+const container = document.querySelector("#container");
 
 function createGrid(){
-    let rows = 16;
-    let columns = 16;
+    let rows = input.value;
+    let columns = input.value;
     for (let i = 0; i < rows; i++){
         const row = document.createElement("div")
         row.classList.add("row");
@@ -17,16 +19,17 @@ function createGrid(){
     }
 }
 
-let btn = document.querySelector('#create');
-
-btn.addEventListener('click', (event) => { 
-    createGrid()
-}, {once:true})
-
-const container = document.querySelector("#container");
+function reset(container){
+    document.querySelector("#container").innerHTML= "";
+}
 
 container.addEventListener("mouseover", (event) => {
     if (event.target.classList.contains("box")) {
         event.target.style.backgroundColor = "blue";
     }
 });
+
+// let btn = document.querySelector('#create');
+// btn.addEventListener('click', (event) => { 
+//     createGrid()
+// }, {once:true})
