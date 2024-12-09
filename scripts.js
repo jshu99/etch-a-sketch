@@ -10,6 +10,7 @@ function createGrid(){
         for (let j = 0; j < columns; j++){
             const box = document.createElement("div");
             box.classList.add("box")
+            box.setAttribute("id", "box")
             row.appendChild(box);
         }
         container.appendChild(row);
@@ -18,7 +19,11 @@ function createGrid(){
 
 createGrid();
 
+const box = document.querySelectorAll(".box");
+function mouseEnter(event){
+    event.target.style.backgroundColor = "blue";
+}
+box.forEach(box=>{
+    box.addEventListener('mouseover', mouseEnter)
+});
 
-
-//create a div column element 
-//iterate the div column element for the max number of time based on parameter
