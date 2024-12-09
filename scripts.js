@@ -5,18 +5,21 @@ const container = document.querySelector("#container");
 function createGrid(){
     let rows = input.value;
     let columns = input.value;
-    for (let i = 0; i < rows; i++){
-        const row = document.createElement("div")
-        row.classList.add("row");
+    if (input.value <= 100){
+        for (let i = 0; i < rows; i++){
+            const row = document.createElement("div")
+            row.classList.add("row");
         
-        for (let j = 0; j < columns; j++){
-            const box = document.createElement("div");
-            box.classList.add("box")
-            box.setAttribute("id", "box")
-            row.appendChild(box);
+            for (let j = 0; j < columns; j++){
+                const box = document.createElement("div");
+                box.classList.add("box")
+                box.setAttribute("id", "box")
+                row.appendChild(box);
+            }
+            container.appendChild(row);
         }
-        container.appendChild(row);
-    }
+    } else 
+    alert("Enter a number less than 100!")
 }
 
 function reset(container){
