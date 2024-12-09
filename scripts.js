@@ -1,4 +1,4 @@
-const container = document.querySelector('#container');
+// const container = document.querySelector('#container');
 
 function createGrid(){
     let rows = 16;
@@ -17,13 +17,16 @@ function createGrid(){
     }
 }
 
-createGrid();
+let btn = document.querySelector('#create');
 
-const box = document.querySelectorAll(".box");
-function mouseEnter(event){
-    event.target.style.backgroundColor = "blue";
-}
-box.forEach(box=>{
-    box.addEventListener('mouseover', mouseEnter)
+btn.addEventListener('click', (event) => { 
+    createGrid()
+}, {once:true})
+
+const container = document.querySelector("#container");
+
+container.addEventListener("mouseover", (event) => {
+    if (event.target.classList.contains("box")) {
+        event.target.style.backgroundColor = "blue";
+    }
 });
-
